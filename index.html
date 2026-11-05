@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>جرعة — سياسة الخصوصية والشروط والأحكام</title>
+  <meta name="description" content="سياسة الخصوصية والشروط والأحكام لتطبيق جرعة — تذكير بالأدوية والمواعيد الطبية.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💊</text></svg>">
+  <style>
+    :root {
+      --bg: #0E1A1F;
+      --surface: #162228;
+      --card: #1A2D35;
+      --border: #243840;
+      --primary: #2D8A6B;
+      --primary-light: #3BA882;
+      --text: #E8F0ED;
+      --text-secondary: #8A9EA8;
+      --accent: #F0C040;
+      --alert: #D94B4B;
+      --radius: 16px;
+      --max-width: 720px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, 'SF Arabic', 'Segoe UI', Tahoma, 'Noto Sans Arabic', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      min-height: 100vh;
+    }
+
+    /* الخلفية المتدرجة */
+    .hero {
+      background: linear-gradient(160deg, #0A2E23 0%, var(--bg) 50%, #1A1A2E 100%);
+      padding: 60px 24px 40px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-icon {
+      font-size: 64px;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .hero h1 {
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, var(--primary-light), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      color: var(--text-secondary);
+      font-size: 15px;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .hero .badge {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-top: 12px;
+    }
+
+    /* التنقل */
+    .nav {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      padding: 20px 24px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .nav a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 8px 20px;
+      border-radius: 24px;
+      transition: all 0.3s;
+      border: 1px solid transparent;
+    }
+
+    .nav a:hover, .nav a.active {
+      color: #fff;
+      background: var(--primary);
+      border-color: var(--primary-light);
+    }
+
+    /* المحتوى */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 32px 24px 80px;
+    }
+
+    .policy-section {
+      display: none;
+    }
+    .policy-section.active {
+      display: block;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--primary);
+    }
+
+    .section-header .icon {
+      font-size: 28px;
+      width: 52px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(45, 138, 107, 0.15);
+      border-radius: 14px;
+      flex-shrink: 0;
+    }
+
+    .section-header h2 {
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .section-header .date {
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    /* البطاقات */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 16px;
+      transition: border-color 0.3s;
+    }
+
+    .card:hover {
+      border-color: var(--primary);
+    }
+
+    .card h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--primary-light);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card h3::before {
+      content: '';
+      width: 4px;
+      height: 20px;
+      background: var(--primary);
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    .card p {
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.9;
+    }
+
+    /* بطاقة التواصل */
+    .contact-card {
+      background: linear-gradient(135deg, rgba(45, 138, 107, 0.15), rgba(45, 138, 107, 0.05));
+      border-color: var(--primary);
+      text-align: center;
+      margin-top: 32px;
+    }
+
+    .contact-card a {
+      color: var(--primary-light);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 17px;
+    }
+
+    .contact-card a:hover {
+      text-decoration: underline;
+    }
+
+    /* الشارات */
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 24px;
+      padding: 20px;
+    }
+
+    .badges .item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 18px;
+      font-size: 13px;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .badges .item span {
+      font-size: 18px;
+    }
+
+    /* التذييل */
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      border-top: 1px solid var(--border);
+      color: var(--text-secondary);
+      font-size: 13px;
+    }
+
+    footer a {
+      color: var(--primary-light);
+      text-decoration: none;
+    }
+
+    /* الاسم الإنجليزي */
+    .en { font-family: -apple-system, 'SF Pro', 'Segoe UI', sans-serif; direction: ltr; unicode-bidi: isolate; }
+
+    @media (max-width: 600px) {
+      .hero { padding: 40px 16px 28px; }
+      .hero h1 { font-size: 26px; }
+      .hero-icon { font-size: 48px; }
+      .container { padding: 20px 16px 60px; }
+      .card { padding: 18px; }
+      .nav { gap: 8px; padding: 14px 16px; }
+      .nav a { padding: 6px 14px; font-size: 13px; }
+      .badges { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- الترويسة -->
+  <div class="hero">
+    <span class="hero-icon">💊</span>
+    <h1>جرعة</h1>
+    <p>تطبيق تذكير بالأدوية والمواعيد الطبية ومتابعة صحة المريض وعائلته</p>
+    <div class="badge">الإصدار ١٫٠ — <span class="en">com.abdullahalmuwallad.jorah</span></div>
+  </div>
+
+  <!-- التنقل -->
+  <div class="nav" id="nav">
+    <a href="#privacy" class="active" onclick="showSection('privacy')">🔒 سياسة الخصوصية</a>
+    <a href="#terms" onclick="showSection('terms')">📄 الشروط والأحكام</a>
+  </div>
+
+  <div class="container">
+
+    <!-- ═══════════ سياسة الخصوصية ═══════════ -->
+    <div class="policy-section active" id="privacy">
+      <div class="section-header">
+        <div class="icon">🔒</div>
+        <div>
+          <h2>سياسة الخصوصية</h2>
+          <div class="date">آخر تحديث: يوليو ٢٠٢٥</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>ما نجمعه</h3>
+        <p>بيانات حسابك (الاسم والبريد الإلكتروني)، وما تدخله في التطبيق من أدوية ومواعيد وملف طبي وجرعات مسجّلة وقياسات صحية، وموقعك عند تفعيل النطاق الآمن أو مشاركة الموقع فقط.</p>
+      </div>
+
+      <div class="card">
+        <h3>كيف نستخدمها</h3>
+        <p>لتشغيل التذكيرات والتنبيهات، وتحليل الالتزام بالأدوية على جهازك، ومزامنة بياناتك مع شركاء الرعاية الذين تدعوهم، وإعداد تقرير الطبيب عند طلبك.</p>
+      </div>
+
+      <div class="card">
+        <h3>أين تُحفظ</h3>
+        <p>تُحفظ بياناتك على جهازك، وتُزامَن مشفّرة مع خدمات <span class="en">Firebase</span> عند تسجيل الدخول، ومع <span class="en">iCloud</span> الخاص بك إن فعّلت النسخ الاحتياطي. لا نبيع بياناتك ولا نشاركها مع أي طرف إعلاني.</p>
+      </div>
+
+      <div class="card">
+        <h3>المشاركة مع العائلة</h3>
+        <p>لا يطّلع على بياناتك إلا من ربطتَ حسابه بحسابك بنفسك، ويمكنك إيقاف المشاركة أو فصل أي شريك رعاية في أي وقت.</p>
+      </div>
+
+      <div class="card">
+        <h3>الموقع والصحة</h3>
+        <p>يُستخدم الموقع للنطاق الآمن والتنبيه عند الخروج منه ولحضور المواعيد، وتُقرأ بيانات تطبيق «صحتي» و<span class="en">Health Connect</span> بإذنك فقط. يمكنك سحب أي إذن من إعدادات الجهاز.</p>
+      </div>
+
+      <div class="card">
+        <h3>الطقس وتنبيه الحر</h3>
+        <p>عند تفعيل «تنبيه الحر قبل الجرعة» نرسل إحداثيات تقريبية (دقتها نحو كيلومتر) دون اسمك أو أي معلومة تعرّف بك إلى خدمة الطقس المفتوحة <span class="en">Open-Meteo</span> لجلب توقعات الحرارة، ولا نرسل أسماء أدوية ولا بيانات صحية. تُحسب التنبيهات على جهازك، ويمكنك إيقاف الميزة من الإعدادات.</p>
+      </div>
+
+      <div class="card">
+        <h3>الأعراض الجانبية من النشرات الرسمية</h3>
+        <p>يجلب التطبيق معلومات الأعراض الجانبية من قاعدة <span class="en">openFDA</span> الرسمية باسم المادة الفعالة فقط، دون إرسال اسمك أو أي بيانات شخصية. تُحفظ النتائج على جهازك وتُعرض في بطاقة الدواء وتقرير الطبيب.</p>
+      </div>
+
+      <div class="card">
+        <h3>الإحصائيات المجهولة</h3>
+        <p>إن فعّلتها نرسل إحصائيات استخدام وأعطالاً دون أي معلومة تعرّف بك، ويمكنك إيقافها من الإعدادات.</p>
+      </div>
+
+      <div class="card">
+        <h3>حقوقك</h3>
+        <p>وفق نظام حماية البيانات الشخصية في المملكة العربية السعودية، يحق لك الاطلاع على بياناتك وتصحيحها وحذفها وطلب نسخة منها. ويمكنك حذف حسابك وكل بياناتك نهائياً في أي وقت من <strong>الإعدادات ← حذف الحساب</strong>. للطلبات راسلنا على <a href="mailto:support@jorah.app" class="en" style="color: var(--primary-light);">support@jorah.app</a>.</p>
+      </div>
+
+      <div class="card">
+        <h3>التحديثات</h3>
+        <p>نُعلمك داخل التطبيق بأي تغيير جوهري في هذه السياسة قبل سريانه.</p>
+      </div>
+
+      <div class="badges">
+        <div class="item"><span>🔐</span> تشفير من طرف إلى طرف</div>
+        <div class="item"><span>🚫</span> لا إعلانات ولا بيع بيانات</div>
+        <div class="item"><span>📱</span> البيانات على جهازك أولاً</div>
+        <div class="item"><span>🇸🇦</span> متوافق مع نظام حماية البيانات السعودي</div>
+        <div class="item"><span>🗑️</span> حذف كامل في أي وقت</div>
+      </div>
+    </div>
+
+    <!-- ═══════════ الشروط والأحكام ═══════════ -->
+    <div class="policy-section" id="terms">
+      <div class="section-header">
+        <div class="icon">📄</div>
+        <div>
+          <h2>الشروط والأحكام</h2>
+          <div class="date">آخر تحديث: يوليو ٢٠٢٥</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>طبيعة التطبيق</h3>
+        <p>جرعة أداة تنظيم وتذكير بالأدوية والمواعيد. ليس بديلاً عن الطبيب أو الصيدلي، ولا يقدّم تشخيصاً ولا وصفة علاجية.</p>
+      </div>
+
+      <div class="card">
+        <h3>المعلومات الدوائية</h3>
+        <p>المعلومات والتنبيهات المعروضة مصدرها قوائم رسمية (مثل هيئة الغذاء والدواء السعودية و<span class="en">openFDA</span>) وتُعرض للاسترشاد. راجع طبيبك أو الصيدلي قبل تغيير أي جرعة أو إيقاف أي دواء.</p>
+      </div>
+
+      <div class="card">
+        <h3>مسؤولية المستخدم</h3>
+        <p>أنت مسؤول عن صحة ما تدخله من بيانات، وعن ضبط الأذونات والتنبيهات على جهازك، وعن سرية حسابك. قد لا تصل التنبيهات إذا قُيّدت من إعدادات الجهاز أو انقطع الاتصال.</p>
+      </div>
+
+      <div class="card">
+        <h3>الاستخدام المقبول</h3>
+        <p>لا يجوز استخدام التطبيق لغرض غير مشروع، أو لتتبّع شخص دون علمه وموافقته، أو لمحاولة الوصول إلى بيانات غيرك.</p>
+      </div>
+
+      <div class="card">
+        <h3>الرعاية المشتركة</h3>
+        <p>عند دعوة شريك رعاية فأنت توافق على اطلاعه على البيانات التي تختار مشاركتها، وتتحمل مسؤولية اختيار من تثق به.</p>
+      </div>
+
+      <div class="card">
+        <h3>حدود المسؤولية</h3>
+        <p>نبذل جهدنا في دقة التطبيق وتوفره، لكنه يُقدَّم كما هو دون ضمان خلوه من الأخطاء، ولا نتحمل مسؤولية قرار صحي اتُّخذ بالاعتماد عليه وحده.</p>
+      </div>
+
+      <div class="card">
+        <h3>إنهاء الحساب</h3>
+        <p>يمكنك التوقف عن الاستخدام وحذف بياناتك في أي وقت، ولنا تعليق الحساب عند مخالفة هذه الشروط.</p>
+      </div>
+
+      <div class="card contact-card">
+        <h3>التواصل</h3>
+        <p>لأي استفسار عن هذه الشروط أو سياسة الخصوصية:</p>
+        <p style="margin-top: 8px;"><a href="mailto:support@jorah.app" class="en">support@jorah.app</a></p>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>💊 تطبيق جرعة — <span class="en">Jorah App</span></p>
+    <p style="margin-top: 6px;">© ٢٠٢٥ عبدالله المولد. جميع الحقوق محفوظة.</p>
+    <p style="margin-top: 6px;">
+      <span class="en">Package: com.abdullahalmuwallad.jorah</span> · 
+      <span class="en">Bundle: com.abdullahalmuwallad.jorahApp</span>
+    </p>
+  </footer>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('.policy-section').forEach(function(s) { s.classList.remove('active'); });
+      document.querySelectorAll('.nav a').forEach(function(a) { a.classList.remove('active'); });
+      var section = document.getElementById(id);
+      if (section) section.classList.add('active');
+      var link = document.querySelector('.nav a[href="#' + id + '"]');
+      if (link) link.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // فتح القسم الصحيح من الرابط المباشر
+    if (window.location.hash === '#terms') showSection('terms');
+    window.addEventListener('hashchange', function() {
+      if (window.location.hash === '#terms') showSection('terms');
+      else showSection('privacy');
+    });
+  </script>
+
+</body>
+</html>
